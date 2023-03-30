@@ -49,6 +49,11 @@ environments:
     required: true
     default: https://beta.abtnetwork.io/api/
     secure: false
+  - name: ETHERSCAN_API_KEY
+    description: the ApiKey of https://etherscan.io/
+    required: true
+    default: ''
+    secure: true
 capabilities: {}
 screenshots: []
 components: []

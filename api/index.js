@@ -1,5 +1,7 @@
 const express = require('express');
 const env = require('./libs/env');
+const transactions = require('./controllers/transactions');
+const errorHandler = require('./middlewares/error-handler');
 
 const app = express();
 
@@ -19,6 +21,12 @@ ${JSON.stringify(env, null, 2)}
   `);
 });
 
+app.get('/api/txs', transactions.listTransactionsByAddress);
+
+app.use(errorHandler);
+
 app.listen(port, () => {
   console.log(`Blocklet app listening on port ${port}`);
 });
+
+module.exports = app;
